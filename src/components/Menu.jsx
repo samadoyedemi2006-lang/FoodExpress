@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "./menuu.css";
 import { products } from "../../products";
 
@@ -7,14 +7,12 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
   const [hover, setHover] = useState(null);
   const [selectUnique, setSelectUnique] = useState("all");
   const observerRef = useRef(null);
+  const cardsRef = useRef([]);
 
   const filteredProducts =
     selectUnique === "all"
       ? products
-      : products.filter((items) => items.uniqueName === selectUnique);
-
- 
-  const cardsRef = useRef([]);
+      : products.filter((item) => item.uniqueName === selectUnique);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -38,7 +36,6 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
 
   return (
     <>
-    <title>Menu</title>
       <div className="home">
         <header className="headerp">
           <Link to="/" className="logo-link">
@@ -53,120 +50,79 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
 
           <Link className="cchha" to="/cart">
             <div className="cart">
-              🛒<span className="cart-count">{cart.length}</span>
+              🛒 <span className="cart-count">{cart.length}</span>
             </div>
           </Link>
         </header>
       </div>
 
-      
       <h2>Our Menu</h2>
       <p>Discover our delicious selection of meals</p>
+
       <div className="nav-item">
-        
-        <button
-          className={selectUnique === "all" ? "active" : ""}
-          onClick={() => setSelectUnique("all")}
-        >
-          All Items
-        </button>
-        <button
-          className={selectUnique === "Burger" ? "active" : ""}
-          onClick={() => setSelectUnique("Burger")}
-        >
-          Burger
-        </button>
-        <button
-          className={selectUnique === "Cake" ? "active" : ""}
-          onClick={() => setSelectUnique("Cake")}
-        >
-          Desserts
-        </button>
-        <button
-          className={selectUnique === "Juice" ? "active" : ""}
-          onClick={() => setSelectUnique("Juice")}
-        >
-          Drinks
-        </button>
-        <button
-          className={selectUnique === "pasta" ? "active" : ""}
-          onClick={() => setSelectUnique("pasta")}
-        >
-          Pasta
-        </button>
-        <button
-          className={selectUnique === "pizza" ? "active" : ""}
-          onClick={() => setSelectUnique("pizza")}
-        >
-          Pizza
-        </button>
-        <button
-          className={selectUnique === "Salad" ? "active" : ""}
-          onClick={() => setSelectUnique("Salad")}
-        >
-          Salad
-        </button>
-        <button
-          className={selectUnique === "sushi" ? "active" : ""}
-          onClick={() => setSelectUnique("sushi")}
-        >
-          Sushi
-        </button>
+        {["all", "Burger", "Cake", "Juice", "pasta", "pizza", "Salad", "sushi"].map(
+          (cat) => (
+            <button
+              key={cat}
+              className={selectUnique === cat ? "active" : ""}
+              onClick={() => setSelectUnique(cat)}
+            >
+              {cat === "all" ? "All Items" : cat}
+            </button>
+          )
+        )}
       </div>
 
       <section className="all-products">
-        {filteredProducts.map((items, index) => (
+        {filteredProducts.map((item, index) => (
           <div
             className="product-cards"
-            key={items.id}
-            ref={(el) => (cardsRef.current[index] = el)} // ✅ assign ref for observer
+            key={item.id}
+            ref={(el) => (cardsRef.current[index] = el)}
           >
             <span className="badge">Featured</span>
 
             <div
               className="product-image"
               style={{
-                backgroundImage: `url("/${items.image}")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "300px",
-                borderRadius: "12px",
-                marginBottom: "14px",
-                transition: "transform 0.3s ease",
+                backgroundImage: `url(${process.env.PUBLIC_URL}/${item.image})`,
                 transform:
-                  hover === items.id
+                  hover === item.id
                     ? "scale(1.05) translateY(-5px)"
                     : "scale(1)",
               }}
-              onMouseEnter={() => setHover(items.id)}
+              onMouseEnter={() => setHover(item.id)}
               onMouseLeave={() => setHover(null)}
-            ></div>
+            />
 
-            <h3>{items.name}</h3>
-            <p className="real">{items.details}</p>
+            <h3>{item.name}</h3>
+            <p className="real">{item.details}</p>
 
             <div className="rating">
               <img
                 className="product-rating-stars"
-                src={`images/ratings/rating-${items.rating.stars * 10}.png`}
+                src={`${process.env.PUBLIC_URL}/images/ratings/rating-${
+                  item.rating.stars * 10
+                }.png`}
                 alt="rating"
               />
-              <span>{items.rating.stars.toFixed(1)}</span>
+              <span>{item.rating.stars.toFixed(1)}</span>
             </div>
-            <p className="price">₦{(items.price / 100).toFixed(2)}</p>
+
+            <p className="price">₦{(item.price / 100).toFixed(2)}</p>
 
             <div className="btns">
-              <button className="add-btn" onClick={() => addToCart(items)}>
+              <button className="add-btn" onClick={() => addToCart(item)}>
                 Add 🛒
               </button>
 
-              {addedId === items.id && <p className="added-text">✔ Added</p>}
-              {liked === items.id && <p className="added-text">❤ Liked</p>}
-
-              <button className="like-btn" onClick={() => addToLike(items)}>
+              <button className="like-btn" onClick={() => addToLike(item)}>
                 ❤
               </button>
             </div>
+
+            {addedId === item.id && <p className="added-text">✔ Added</p>}
+            {liked === item.id && <p className="added-text">❤ Liked</p>}
           </div>
         ))}
       </section>
