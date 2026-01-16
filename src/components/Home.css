@@ -36,10 +36,7 @@ color: white;
 a{
     text-decoration: none;
 }
-.nav {
-  display: flex;
-  gap: 15px;
-}
+
 
 .nav a {
   color: white;
@@ -404,4 +401,34 @@ a{
 
 @media (max-width: 450px) {
   
+}
+/* ===== MOBILE MENU ICON ===== */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #35556e;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav.active {
+    display: flex;
+  }
 }
