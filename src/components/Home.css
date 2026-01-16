@@ -416,7 +416,12 @@ a{
     display: block;
   }
 
-  .nav {
+  nav {
+    display: none;
+  }
+
+  nav.active {
+    display: flex;
     position: absolute;
     top: 70px;
     left: 0;
@@ -425,10 +430,5 @@ a{
     flex-direction: column;
     gap: 15px;
     padding: 20px 0;
-    display: none;
-  }
-
-  .nav.active {
-    display: flex;
   }
 }

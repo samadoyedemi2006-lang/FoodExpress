@@ -40,10 +40,10 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
         </div>
 
         {/* ✅ NAV */}
-        <nav className={`nav ${menuOpen ? "active" : ""}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/menu" onClick={() => setMenuOpen(false)}>Menu</Link>
-          <Link to="/favourite" onClick={() => setMenuOpen(false)}>Favourite</Link>
+        <nav className={menuOpen ? "active" : ""}>
+          <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/favourite">Favourite</Link>
         </nav>
 
         <Link className="cart-link" to="/cart">
