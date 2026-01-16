@@ -284,6 +284,7 @@ a{
 .like-btn{
   width: 100px;
   padding: 12px;
+  color: #111;
   font-size: 25px;
   border: none;
 
@@ -340,14 +341,22 @@ a{
     padding: 60px 5%;
   }
 
-  .product-image{
  
-  height: 500px;
-}
   
   .img-div,.img-div2{
-    height: 130px;
-  }
+    height: auto;
+
+  }.like-btn{
+  
+  color: #f80101;
+  
+
+}
+.add-btn:hover {
+  background: none;
+}
+
+
 
   .order-btn {
     width: 100%;

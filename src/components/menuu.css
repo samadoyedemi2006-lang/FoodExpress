@@ -258,11 +258,21 @@ p {
   .price {
     font-size: 16px;
   }
-  .product-image{
- 
-  height: 500px;
+  
+  .img-div,.img-div2{
+    height: auto;
+
+  }.like-btn{
+  
+  color: #f80101;
+  
+
+}
+.add-btn:hover {
+  background: none;
 }
 }
+
 
 /* ===============================
    OBSERVE & SLIDE UP ANIMATION
