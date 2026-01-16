@@ -23,7 +23,7 @@ function Cart({ cart, removeFromCart, increase, decrease }) {
       </header>
 
 
-      {cart.length === 0 &&<><FaShoppingCart/><p>Cart is empty</p></>}
+      {cart.length === 0 &&<><p>Cart is empty</p></>}
 
       {cart.map(item => (
         <div key={item.id} className="cart-item">

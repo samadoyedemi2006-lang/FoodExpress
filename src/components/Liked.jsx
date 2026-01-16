@@ -16,7 +16,7 @@ function Favourite({cart, Favourite, removeFromLiked }) {
               </div>
              </Link>
             </header>
-      {Favourite.length === 0 && <><FaBoxOpen/> <p>Favourite is empty </p></>}
+      {Favourite.length === 0 && <><p>Favourite is empty </p></>}
 
       {Favourite.map(item => (
         <div key={item.id} className="cart-item">

@@ -133,33 +133,55 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
 
       {/* ===== FOOTER ===== */}
       <footer className="footer">
-        <p>
-          <Link to="/" className="cart-link">
-          <h1 className="logo">FoodExpress</h1>
-        </Link>
-        <div className="maxxx">
-           <p>Delicious Food Delivered Fast to your doorstep Quality  meals, happy customers.</p>
-        </div>
-        <div className="all-footer">
-          <div className="liiink">
-           <h2>Quick Links</h2>
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/favourite">Favourite</Link>
-          </div>
-          <div className="footer-con">
-            <h2>Contact Us</h2>
-          <FaPhoneAlt/><p>Phone</p>
-          <p>09156320616</p>
-          <FaCommentDots/><p>WhatsApp</p>
-          <p>09070550525</p>
-          <FaEnvelope/><p>Email</p>
-          <p>oyedemisamad@gmail.com</p>
-          </div>
-        </div>
-          
-          © 2026 FoodExpress. All Rights Reserved.</p>
-      </footer>
+  {/* LOGO + DESC */}
+  <div className="footer-top">
+    <Link to="/" className="cart-link">
+      <h1 className="logo">FoodExpress</h1>
+    </Link>
+
+    <p className="maxxx">
+      Delicious Food Delivered Fast to your doorstep.  
+      Quality meals, happy customers.
+    </p>
+  </div>
+
+  {/* FOOTER CONTENT */}
+  <div className="all-footer">
+    {/* QUICK LINKS */}
+    <div className="liiink">
+      <h2>Quick Links</h2>
+      <Link to="/">Home</Link>
+      <Link to="/menu">Menu</Link>
+      <Link to="/favourite">Favourite</Link>
+    </div>
+
+    {/* CONTACT */}
+    <div className="footer-con">
+      <h2>Contact Us</h2>
+
+      <div className="contact-row">
+        <FaPhoneAlt />
+        <span>09156320616</span>
+      </div>
+
+      <div className="contact-row">
+        <FaCommentDots />
+        <span>09070550525</span>
+      </div>
+
+      <div className="contact-row">
+        <FaEnvelope />
+        <span>oyedemisamad@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  {/* COPYRIGHT */}
+  <p className="copyright">
+    © 2026 FoodExpress. All Rights Reserved.
+  </p>
+</footer>
+
     </div>
   );
 }
