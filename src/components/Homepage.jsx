@@ -23,7 +23,7 @@ function Home({addToCart, cart, addedId,liked,addToLike}) {
  
   return (
     <div className="home">
-
+      <title>Home</title>
           <header className="headerm">
           <Link to="/"  className="cart-link"><h1 className="logo">FoodExpress</h1></Link>
 
@@ -66,20 +66,9 @@ function Home({addToCart, cart, addedId,liked,addToLike}) {
     <div className="product-card2" key={items.id}>
       
       <span className="badge">Featured</span>
+      
           <div className="img-div2">
-            <div className="product-image" style={{
-            backgroundImage: `url("/${items.image}")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            height: '300px',
-            borderRadius: '12px',
-            marginBottom: '14px',
-            transition: 'transform 0.3s ease',
-            transform: hover==items.id? 'scale(1.3) translateY(-5px)':'scale(1)'
-            }} onMouseEnter={() => setHover(items.id)}
-              onMouseLeave={() => setHover(null)}>
-            </div>
+            <img className="product-image" src={items.image}></img>
           </div>
           
           <h3>{items.name}</h3>
