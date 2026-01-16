@@ -258,6 +258,10 @@ p {
   .price {
     font-size: 16px;
   }
+  .product-image{
+ 
+  height: 500px;
+}
 }
 
 /* ===============================

@@ -316,7 +316,7 @@ a{
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 768px) {
+@media (max-width: 780px) {
   .header {
     flex-direction: column;
     gap: 10px;
@@ -330,6 +330,8 @@ a{
   .cart {
     margin-top: 5px;
   }
+
+  
 }
 
 /* ================= SMALL PHONES ================= */
@@ -338,7 +340,10 @@ a{
     padding: 60px 5%;
   }
 
-  
+  .product-image{
+ 
+  height: 500px;
+}
   
   .img-div,.img-div2{
     height: 130px;
