@@ -37,10 +37,10 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
        
 
         {/* ✅ NAV */}
-        <nav className={menuOpen ? "active" : ""}>
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/favourite">Favourite</Link>
+        <nav className={menuOpen ? "active" : "list"}>
+          <Link className="link" to="/">Home</Link>
+          <Link className="link" to="/menu">Menu</Link>
+          <Link  className="link" to="/favourite">Favourite</Link>
         </nav>
 
         <Link className="cart-link" to="/cart">
@@ -132,32 +132,24 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
       </div>
 
       {/* ===== FOOTER ===== */}
-      <footer className="footer">
-  {/* LOGO + DESC */}
-  <div className="footer-top">
-    <Link to="/" className="cart-link">
-      <h1 className="logo">FoodExpress</h1>
+      <footer>
+
+  
+  <div className="all-footer">
+     <div className="footer-top">
+    <Link to="/" className="cart-linkk">
+      <h1 className="logol">FoodExpress</h1>
     </Link>
 
-    <p className="maxxx">
-      Delicious Food Delivered Fast to your doorstep.  
+    <span className="maxxx">
+      Delicious Food Delivered Fast to your doorstep.<br/>  
       Quality meals, happy customers.
-    </p>
+    </span>
   </div>
-
-  {/* FOOTER CONTENT */}
-  <div className="all-footer">
-    {/* QUICK LINKS */}
-    <div className="liiink">
-      <h2>Quick Links</h2>
-      <Link to="/">Home</Link>
-      <Link to="/menu">Menu</Link>
-      <Link to="/favourite">Favourite</Link>
-    </div>
-
+    
     {/* CONTACT */}
     <div className="footer-con">
-      <h2>Contact Us</h2>
+      <h1>Contact Us</h1>
 
       <div className="contact-row">
         <FaPhoneAlt />
