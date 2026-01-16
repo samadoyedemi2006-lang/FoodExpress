@@ -5,7 +5,7 @@ import { homepage } from "../../homepage";
 import { features } from "../../features";
 
 // ✅ ICONS
-import { FaBars, FaTimes, FaShoppingCart, FaHeart, FaArrowRight } from "react-icons/fa";
+import { FaPhoneAlt,FaCommentDots,FaEnvelope, FaBars, FaTimes, FaShoppingCart, FaHeart, FaArrowRight } from "react-icons/fa";
 
 function Home({ addToCart, cart, addedId, liked, addToLike }) {
 
@@ -34,10 +34,7 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
           <h1 className="logo">FoodExpress</h1>
         </Link>
 
-        {/* ✅ HAMBURGER ICON */}
-        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </div>
+       
 
         {/* ✅ NAV */}
         <nav className={menuOpen ? "active" : ""}>
@@ -52,6 +49,11 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
             <span className="cart-count">{cart.length}</span>
           </div>
         </Link>
+
+         {/* ✅ HAMBURGER ICON */}
+        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </header>
 
       {/* ===== HERO ===== */}
@@ -131,7 +133,32 @@ function Home({ addToCart, cart, addedId, liked, addToLike }) {
 
       {/* ===== FOOTER ===== */}
       <footer className="footer">
-        <p>© 2026 FoodExpress. All Rights Reserved.</p>
+        <p>
+          <Link to="/" className="cart-link">
+          <h1 className="logo">FoodExpress</h1>
+        </Link>
+        <div className="maxxx">
+           <p>Delicious Food Delivered Fast to your doorstep Quality  meals, happy customers.</p>
+        </div>
+        <div className="all-footer">
+          <div className="liiink">
+           <h2>Quick Links</h2>
+          <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/favourite">Favourite</Link>
+          </div>
+          <div className="footer-con">
+            <h2>Contact Us</h2>
+          <FaPhoneAlt/><p>Phone</p>
+          <p>09156320616</p>
+          <FaCommentDots/><p>WhatsApp</p>
+          <p>09070550525</p>
+          <FaEnvelope/><p>Email</p>
+          <p>oyedemisamad@gmail.com</p>
+          </div>
+        </div>
+          
+          © 2026 FoodExpress. All Rights Reserved.</p>
       </footer>
     </div>
   );

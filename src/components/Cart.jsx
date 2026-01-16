@@ -1,5 +1,6 @@
 import "./Cart.css";
 import { Link } from "react-router-dom";
+import { FaShoppingCart,FaBoxOpen } from "react-icons/fa";
 
 function Cart({ cart, removeFromCart, increase, decrease }) {
 
@@ -16,13 +17,13 @@ function Cart({ cart, removeFromCart, increase, decrease }) {
           <h1>Your Cart</h1>
        <Link className="cart-link" to="/cart">
           <div className="cart">
-          🛒 <span className="cart-count">{cart.length}</span>
+          <FaShoppingCart/> <span className="cart-count">{cart.length}</span>
         </div>
        </Link>
       </header>
 
 
-      {cart.length === 0 && <p>Cart is empty</p>}
+      {cart.length === 0 &&<><FaShoppingCart/><p>Cart is empty</p></>}
 
       {cart.map(item => (
         <div key={item.id} className="cart-item">

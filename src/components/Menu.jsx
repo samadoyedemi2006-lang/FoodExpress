@@ -2,10 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom"; 
 import "./menuu.css";
 import { products } from "../../products";
+import { FaBars, FaTimes, FaShoppingCart, FaHeart, FaArrowRight } from "react-icons/fa";
 
 function Menu({ addToCart, addToLike, cart, addedId, liked }) {
   const [selectUnique, setSelectUnique] = useState("all");
   const observerRef = useRef(null);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const filteredProducts =
     selectUnique === "all"
@@ -44,7 +47,7 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
             <h1 className="logo">FoodExpress</h1>
           </Link>
 
-          <nav className="nav">
+           <nav className={menuOpen ? "active" : ""}>
             <Link to="/">Home</Link>
             <Link to="/menu">Menu</Link>
             <Link to="/favourite">Favourite</Link>
@@ -52,9 +55,13 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
 
           <Link className="cchha" to="/cart">
             <div className="cart">
-              🛒<span className="cart-count">{cart.length}</span>
+             <FaShoppingCart />
+              <span className="cart-count">{cart.length}</span>
             </div>
           </Link>
+          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
         </header>
       </div>
 
@@ -141,14 +148,14 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
 
             <div className="btns">
               <button className="add-btn" onClick={() => addToCart(items)}>
-                Add 🛒
+                Add <FaShoppingCart />
               </button>
 
               {addedId === items.id && <p className="added-text">✔ Added</p>}
               {liked === items.id && <p className="added-text">❤ Liked</p>}
 
               <button className="like-btn" onClick={() => addToLike(items)}>
-                ❤
+                <FaHeart />
               </button>
             </div>
           </div>

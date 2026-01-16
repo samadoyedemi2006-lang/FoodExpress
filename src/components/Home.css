@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: clamp(28px, 6vw, 48px);
   box-sizing: border-box;
 }
 
@@ -305,26 +306,41 @@ a{
 
 /* ================= FOOTER ================= */
 .footer {
-  background: #111;
+  font-size: clamp(14px, 3vw, 18px);
+  background:rgb(53, 85, 110) ;
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   padding: 20px 10px;
   margin-top: 40px;
-  font-size: 14px;
 }
-
+.maxxx{
+  max-width:400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.all-footer{
+  display: flex;
+  gap: 20px;
+}
 /* ================= MOBILE ================= */
 @media (max-width: 780px) {
   .header {
     flex-direction: column;
     gap: 10px;
   }
-
-  .nav {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  maxxx{
+  max-width:300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.all-footer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+  
   .cart {
     margin-top: 5px;
   }

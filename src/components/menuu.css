@@ -298,3 +298,37 @@ p {
 .product-cards.show:hover {
   transform: translateY(-6px) scale(1.02);
 }
+
+@media (max-width: 450px) {
+  
+}
+/* ===== MOBILE MENU ICON ===== */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.active {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #35556e;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+}
