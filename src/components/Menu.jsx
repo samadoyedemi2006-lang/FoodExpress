@@ -4,7 +4,6 @@ import "./menuu.css";
 import { products } from "../../products";
 
 function Menu({ addToCart, addToLike, cart, addedId, liked }) {
-  const [hover, setHover] = useState(null);
   const [selectUnique, setSelectUnique] = useState("all");
   const observerRef = useRef(null);
 
@@ -123,24 +122,9 @@ function Menu({ addToCart, addToLike, cart, addedId, liked }) {
           >
             <span className="badge">Featured</span>
 
-            <div
-              className="product-image"
-              style={{
-                backgroundImage: `url("/${items.image}")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "300px",
-                borderRadius: "12px",
-                marginBottom: "14px",
-                transition: "transform 0.3s ease",
-                transform:
-                  hover === items.id
-                    ? "scale(1.05) translateY(-5px)"
-                    : "scale(1)",
-              }}
-              onMouseEnter={() => setHover(items.id)}
-              onMouseLeave={() => setHover(null)}
-            ></div>
+            <div className="img-div2">
+            <img className="product-image" src={items.image}></img>
+          </div>
 
             <h3>{items.name}</h3>
             <p className="real">{items.details}</p>

@@ -5,7 +5,7 @@ import { homepage } from "../../homepage";
 import { features } from "../../features";
 
 function Home({addToCart, cart, addedId,liked,addToLike}) {
-  const[hover, setHover] = useState(null);
+
   
   const newList = []
   homepage.forEach(items => {

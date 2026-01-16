@@ -117,6 +117,23 @@ p {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
+.img-div2{
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.product-image{
+  object-fit: cover;
+  object-position: center;
+  height: 300px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  transition: transform 0.3s ease,
+}
+.product-image:hover{
+  transform:scale(1.05) translateY(-5px);
+}
+
 /* ===== FEATURED BADGE ===== */
 .badge {
   position: absolute;
